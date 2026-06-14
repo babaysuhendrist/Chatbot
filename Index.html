@@ -1,0 +1,208 @@
+import streamlit as st
+
+st.set_page_config(
+    page_title="BIG Publishing Chatbot",
+    page_icon="📚",
+    layout="wide"
+)
+
+# HEADER
+st.title("📚 BIG Publishing Chatbot")
+st.subheader("Asisten Penerbitan Buku Profesional")
+
+st.markdown("---")
+
+st.write(
+    """
+    Selamat datang di BIG Publishing.
+
+    Saya siap membantu Anda mendapatkan informasi mengenai:
+    - Cara menerbitkan buku
+    - Estimasi biaya penerbitan
+    - ISBN & Hak Cipta
+    - Status naskah
+    - Konsultasi penerbitan
+    """
+)
+
+# MENU UTAMA
+menu = st.selectbox(
+    "Pilih kebutuhan Anda:",
+    [
+        "Pilih Menu",
+        "Cara Menerbitkan Buku",
+        "Estimasi Biaya",
+        "ISBN & Hak Cipta",
+        "Status Naskah",
+        "Hubungi Admin"
+    ]
+)
+
+# ======================================
+# MENU 1
+# ======================================
+if menu == "Cara Menerbitkan Buku":
+
+    tahap = st.selectbox(
+        "Pilih Tahapan",
+        [
+            "Konsultasi Awal",
+            "Review Naskah",
+            "Kontrak Kerjasama",
+            "ISBN",
+            "Cetak dan Distribusi"
+        ]
+    )
+
+    if tahap == "Konsultasi Awal":
+        st.success("""
+        Tahap pertama adalah konsultasi dengan tim BIG Publishing.
+        
+        Silakan kirim:
+        - Judul Buku
+        - Sinopsis
+        - Jumlah Halaman
+        """)
+
+    elif tahap == "Review Naskah":
+        st.info("""
+        Tim editor akan melakukan:
+        - Pemeriksaan isi
+        - Pemeriksaan tata bahasa
+        - Pemeriksaan format
+        """)
+
+    elif tahap == "Kontrak Kerjasama":
+        st.info("""
+        Setelah naskah diterima, akan dilakukan
+        penandatanganan kontrak penerbitan.
+        """)
+
+    elif tahap == "ISBN":
+        st.info("""
+        BIG Publishing membantu pengurusan ISBN resmi.
+        """)
+
+    elif tahap == "Cetak dan Distribusi":
+        st.info("""
+        Buku akan dicetak dan didistribusikan ke marketplace
+        serta toko buku mitra.
+        """)
+
+# ======================================
+# MENU 2
+# ======================================
+elif menu == "Estimasi Biaya":
+
+    paket = st.radio(
+        "Pilih Paket",
+        [
+            "Paket Hemat",
+            "Paket Standar",
+            "Paket Premium"
+        ]
+    )
+
+    if paket == "Paket Hemat":
+        st.success("""
+        Rp 3.000.000
+        
+        Fasilitas:
+        - ISBN
+        - Layout
+        - Cover Standar
+        """)
+
+    elif paket == "Paket Standar":
+        st.success("""
+        Rp 6.000.000
+        
+        Fasilitas:
+        - ISBN
+        - Editing
+        - Layout
+        - Cover Profesional
+        """)
+
+    elif paket == "Paket Premium":
+        st.success("""
+        Rp 10.000.000
+        
+        Fasilitas:
+        - ISBN
+        - Editing Lengkap
+        - Layout
+        - Cover Premium
+        - Marketing
+        """)
+
+# ======================================
+# MENU 3
+# ======================================
+elif menu == "ISBN & Hak Cipta":
+
+    layanan = st.radio(
+        "Pilih Layanan",
+        [
+            "ISBN",
+            "Hak Cipta"
+        ]
+    )
+
+    if layanan == "ISBN":
+        st.info("""
+        ISBN adalah identitas resmi buku yang diterbitkan.
+        
+        BIG Publishing membantu pengurusan ISBN nasional.
+        """)
+
+    else:
+        st.info("""
+        Hak cipta melindungi karya penulis dari pembajakan.
+        
+        BIG Publishing membantu proses pendaftaran hak cipta.
+        """)
+
+# ======================================
+# MENU 4
+# ======================================
+elif menu == "Status Naskah":
+
+    nomor = st.text_input(
+        "Masukkan Nomor Naskah"
+    )
+
+    if st.button("Cek Status"):
+
+        if nomor == "":
+            st.warning("Masukkan nomor naskah terlebih dahulu")
+
+        else:
+            st.success(f"""
+            Nomor Naskah: {nomor}
+
+            Status Saat Ini:
+            Sedang dalam proses editing.
+            """)
+
+# ======================================
+# MENU 5
+# ======================================
+elif menu == "Hubungi Admin":
+
+    st.markdown("""
+    ### Kontak BIG Publishing
+
+    📱 WhatsApp:
+    +62 812-3456-7890
+
+    📧 Email:
+    info@bigpublishing.my.id
+
+    🌐 Website:
+    https://bigpublishing.my.id
+    """)
+
+st.markdown("---")
+
+st.caption("© 2026 BIG Publishing Chatbot")
